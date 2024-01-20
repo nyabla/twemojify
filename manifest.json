@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Twemojify",
+  "version": "1.3",
+
+  "description": "Replaces all emoji with twemoji!",
+
+  "icons": {
+    "48": "icons/icon.svg",
+	  "96": "icons/icon.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["twemoji.js", "twemojify.js"],
+	    "css": ["twemoji.css"]
+    },
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["youtube.js"]
+    },
+    {
+      "matches": ["*://www.facebook.com/*"],
+      "js": ["facebook.js"]
+    }
+  ]
+
+}
