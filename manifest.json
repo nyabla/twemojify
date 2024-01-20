@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["src/twemoji.js", "src/twemojify.js"],
+      "js": ["src/twemojify.js"],
 	    "css": ["src/twemoji.css"]
     },
     {

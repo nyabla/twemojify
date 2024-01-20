@@ -3,6 +3,7 @@ twemoji.js and twemoji images are Copyright 2020 Twitter, Inc and other contribu
 Code licensed under the MIT License: http://opensource.org/licenses/MIT
 Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
 */
+import twemoji from '@twemoji/api/dist/twemoji.esm'
 
 twemoji.className = 'twemojified';
 

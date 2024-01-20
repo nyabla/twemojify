@@ -19,5 +19,8 @@
       "sourceMap": false,
       "source": "manifest.json"
     }
+  },
+  "dependencies": {
+    "@twemoji/api": "^15.0.3"
   }
 }
