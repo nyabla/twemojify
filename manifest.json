@@ -14,16 +14,16 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["twemoji.js", "twemojify.js"],
-	    "css": ["twemoji.css"]
+      "js": ["src/twemoji.js", "src/twemojify.js"],
+	    "css": ["src/twemoji.css"]
     },
     {
       "matches": ["*://www.youtube.com/*"],
-      "js": ["youtube.js"]
+      "js": ["src/youtube.js"]
     },
     {
       "matches": ["*://www.facebook.com/*"],
-      "js": ["facebook.js"]
+      "js": ["src/facebook.js"]
     }
   ]
 
