@@ -13,11 +13,4 @@ function convertYoutubeURL(ytURL) {
     return `${twemoji.base}${twemoji.size}/${codepoints}${twemoji.ext}`;
 }
 
-// disable observer
-observer.disconnect();
-
-// new observer
-const ytObserver = new MutationObserver(twemojify(replaceYoutubeEmoji));
-ytObserver.observe(document.body, config);
-
-    
+window.twemojifyExt = replaceYoutubeEmoji

@@ -18,10 +18,5 @@ function convertFacebookURL(fbURL) {
     return `${twemoji.base}${twemoji.size}/${codepoints}${twemoji.ext}`;
 }
 
-// disable observer
-observer.disconnect();
-
-// new observer
-const fbObserver = new MutationObserver(twemojify(replaceFacebookEmoji));
-fbObserver.observe(document.body, config);
+window.twemojifyExt = replaceFacebookEmoji
     
