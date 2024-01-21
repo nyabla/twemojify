@@ -4,14 +4,13 @@ Code licensed under the MIT License: http://opensource.org/licenses/MIT
 Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
 */
 import twemoji from '@twemoji/api/dist/twemoji.esm'
+import { siteDisabled } from './blacklist';
+import Browser from 'webextension-polyfill';
 window.twemoji = twemoji
 
 twemoji.className = 'twemojified';
 
 window.twemojifyExt = () => {}
-
-// parse body and replace with twemoji
-twemoji.parse(document.body);
 
 // observe the body for changes and update accordingly
 const config = {
@@ -38,4 +37,20 @@ function twemojify(mutationList, _observer) {
 }
 
 const observer = new MutationObserver(twemojify);
-observer.observe(document.body, config);
+
+siteDisabled(new URL(location.href)).then(disabled => {
+    if (!disabled) {
+        // parse body and replace with twemoji
+        twemoji.parse(document.body);
+        observer.observe(document.body, config);
+    }
+})
+
+Browser.runtime.onMessage.addListener(message => {
+    if (message.enabled == true) {
+        twemoji.parse(document.body);
+        observer.observe(document.body, config);
+    } else {
+        observer.disconnect()
+    }
+})

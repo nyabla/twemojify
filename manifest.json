@@ -3,17 +3,37 @@
   "manifest_version": 2,
   "name": "Twemojify",
   "version": "1.3",
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "twemojify@addons.nyabla.net"
+    }
+  },
+  
 
   "description": "Replaces all emoji with twemoji!",
+
+  "permissions": [
+    "storage", "tabs"
+  ],
 
   "icons": {
     "48": "icons/icon.svg",
 	  "96": "icons/icon.svg"
   },
 
+  "browser_action": {
+    "default_icon": "icons/icon.svg",
+    "default_title": "disable twemojify for this site"
+  },
+
+  "background": {
+    "scripts": ["src/worker.js"]
+  },
+
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["src/twemojify.js"],
 	    "css": ["src/twemoji.css"]
     },

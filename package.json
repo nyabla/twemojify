@@ -4,6 +4,7 @@
   "description": "Replaces all emoji with twemoji",
   "scripts": {
     "build": "npx parcel build && npx web-ext build -s dist -o",
+    "build:dev": "npx parcel build --target dev && npx web-ext build -s dist -o",
     "clean": "rm -rf web-ext-artifacts dist",
     "clean:deep": "rm -rf web-ext-artifacts dist .parcel-cache"
   },
@@ -12,12 +13,18 @@
   "devDependencies": {
     "@parcel/config-webextension": "^2.11.0",
     "parcel": "^2.11.0",
-    "web-ext": "^7.10.0"
+    "web-ext": "^7.10.0",
+    "webextension-polyfill": "^0.10.0"
   },
   "targets": {
     "default": {
       "sourceMap": false,
       "source": "manifest.json"
+    },
+    "dev": {
+      "sourceMap": true,
+      "source": "manifest.json",
+      "distDir": "dist"
     }
   },
   "dependencies": {
